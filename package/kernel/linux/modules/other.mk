@@ -964,3 +964,33 @@ define KernelPackage/echo/description
 endef
 
 $(eval $(call KernelPackage,echo))
+
+
+define KernelPackage/adxl34x
+  SUBMENU:=$(OTHER_MENU)
+  TITLE:=ADXL34X 3D accelerator driver.
+  KCONFIG:=CONFIG_INPUT_ADXL34X
+  FILES:=$(LINUX_DIR)/drivers/input/misc/adxl34x.ko
+  AUTOLOAD:=$(call AutoLoad,50,adxl34x)
+endef
+
+define KernelPackage/adxl34x/description
+ Kernel modules for ADXL34x accelerator driver.
+endef
+
+$(eval $(call KernelPackage,adxl34x))
+
+
+define KernelPackage/adxl34x-i2c
+  SUBMENU:=$(OTHER_MENU)
+  TITLE:=ADXL34X 3D accelerator i2c driver.
+  KCONFIG:=CONFIG_INPUT_ADXL34X_I2C
+  FILES:=$(LINUX_DIR)/drivers/input/misc/adxl34x-i2c.ko
+  AUTOLOAD:=$(call AutoLoad,50,adxl34x-i2c)
+endef
+
+define KernelPackage/adxl34x-i2c/description
+ Kernel modules for ADXL34x accelerator i2c driver.
+endef
+
+$(eval $(call KernelPackage,adxl34x-i2c))
